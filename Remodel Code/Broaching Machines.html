@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Machine List</title>
+  <style>
+    body {
+      background: url("https://lh3.googleusercontent.com/Xpjy3FUFlW5lENM4CLjVe1yYf7v0w8z9SHyjN4HU8ZXfrwboZP_QtM6Xs_kc7359EdMBzgoOQXSKwZlZ2Qn_LV8eVLaQMNvudnpB_bhLa3u1KlW2MX-0ApAKFchYIHZQ3eLWPJ1O=w2400") center/cover fixed;
+      flex-direction: column;
+      text-align: center;
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      color:#d60202;
+      font-weight: 750;
+      font-size: 36px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #4c6aaf;
+      color: white;
+    }
+
+    .green {
+      background-color: #b3ffb3 !important;
+    }
+
+    .back-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-button button {
+      background-color: #4c6aaf;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .back-button button:hover {
+      background-color: #45a049;
+    }
+
+    .refresh-button {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .refresh-button button {
+      background-color: #4c6aaf;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .refresh-button button:hover {
+      background-color: #45a049;
+    }
+
+    .filter-container{
+      font-size: 24px;
+      color:#4c6aaf
+    }
+
+    #maxDiam{
+      font-size: 20px;
+      width:200px
+    }
+
+    #maxDepth{
+      font-size: 20px;
+      width:200px
+    }
+
+    #filter{
+      font-size: 20px;
+      background-color: #4c6aaf;
+      color:white
+
+    }
+
+    #machineTable{
+      font-size: 18px;
+      font-weight: 700;
+      color:#4c6aaf;
+      background-color: rgb(255,255,255,0.6);
+      width: 80%;
+      align-content: center;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+
+    .head{
+      background-color: #d60202;
+    }
+
+
+    .info-button {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background-image: url("./iMAGES/infobutton2.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .info-tooltip {
+      position: absolute;
+      padding: 8px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      z-index: 1;
+      display: none;
+    }
+
+    td:hover .info-tooltip {
+      display: block;
+      border: 2px dotted #4c6aaf
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <h1>Broaching Cutter Machine List</h1><BR>
+
+  <div class="filter-container">
+    <label for="maxDiam"><B>Max Diameter:</B></label>
+    <input type="number" id="maxDiam" placeholder="Enter Max Diameter">
+    <label for="maxDepth"><B>Max Depth:</B></label>
+    <input type="number" id="maxDepth" placeholder="Enter Max Depth">
+    <button id="filter" onclick="filterMachines()">Filter</button>
+  </div>
+<BR><BR>
+  <table id="machineTable">
+    <tr>
+      <th id="make" class="head">Make/Model</th>
+      <th id="motor" class="head">Motor (W)</th>
+      <th id= weight class="head">Weight (KG)</th>
+      <th id="mdiam" class="head">Max Diam</th>
+      <th id="mdepth" class="head">Max Depth</th>
+      <th id="rpm" class="head">RPM</th>
+      <th id="exvat" class="head">Price Ex Vat</th>
+      <th id="incvat" class="head">Price Inc Vat</th>
+    </tr>
+    <tr>
+      <td>Unibor E40 
+        <span class="info-button" onmouseover="showInfo(event)" onmouseout="hideInfo(event)" data-info="
+        <b>Magnet Size(mm):</b> 80x160 <br>
+        <b>Magnetic Adhesion:</b> 800kg <br>
+        <b>Comes With:</b><br>Guard,<br> Safety Strap,<br> Coolant Bottle,<br> 4mm Tee Handle Hex Key,<br> 3mm Hex Key,<br> Safety Glasses<br> Gloves<br>
+        <b>Warranty:</b> 12 Months<br>
+        <b>Variable Speed: </b>No<br>
+        <b>Dimensions(mm):</b> H:330 x L:270 x W:165<br>
+        <b>Voltage Available:</b> 240v<br>
+        <b>Stroke(mm):</b> 105"></span></td>
+      <td>1200</td>
+      <td>11.5</td>
+      <td>35</td>
+      <td>50</td>
+      <td>850</td>
+      <td>£199.00</td>
+      <td>£238.80</td>
+    </tr>
+    <tr>
+      <td>Rotabroach E30 
+        <span class="info-button" onmouseover="showInfo(event)" onmouseout="hideInfo(event)" data-info="
+        <b>Magnet Size(mm):</b> 80x160 <br>
+        <b>Magnetic Adhesion:</b> 1000kg <br>
+        <b>Comes With:</b><br>Drill Chuck & Adaptor,<br> 4mm Tee Handle Hex Key,<br> 3mm Hex Key,<br> Safety Glasses,<br> Carbon Brush (2x spare)<br>
+        <b>Warranty:</b> 12 Months (when registered)<br>
+        <b>Variable Speed: </b>Yes<br>
+        <b>Dimensions(mm):</b> H:406 x L:265 x W:170<br>
+        <b>Voltage Available:</b> 110v/240v<br>
+        <b>Stroke(mm):</b> 65""></span></td>
+      <td>850</td>
+      <td>10</td>
+      <td>32</td>
+      <td>35</td>
+      <td>600</td>
+      <td>£337.00</td>
+      <td>£404.40</td>
+    </tr>
+    <tr>
+      <td>Alfra RB35B 
+        <span class="info-button" onmouseover="showInfo(event)" onmouseout="hideInfo(event)" data-info="
+        <b>Magnet Size(mm):</b> 70x184 <br>
+        <b>Magnetic Adhesion:</b> 900kg <br>
+        <b>Comes With:</b><br>Drill Chuck & Adaptor,<br> Safety Belt,<br> Guard,<br> Coolant Bottle,<br> Allan Keys,<br>
+        <b>Warranty:</b> 12 Months<br>
+        <b>Variable Speed: </b>No<br>
+        <b>Dimensions(mm):</b> H:330 x L:270 x W:110<br>
+        <b>Voltage Available:</b> 110v/240v"></span></td>
+      </td>
+      <td>1050</td>
+      <td>11.5</td>
+      <td>35</td>
+      <td>50</td>
+      <td>450</td>
+      <td>£299.00</td>
+      <td>£358.80</td>
+    </tr>
+    <tr>
+      <td>JEI Minibeast 
+        <span class="info-button" onmouseover="showInfo(event)" onmouseout="hideInfo(event)" data-info="
+        <b>Magnet Size(mm):</b> 80x160 <br>
+        <b>Magnetic Adhesion:</b> 980kg <br>
+        <b>Comes With:</b><br> Guard,<br> Safety Chain,<br> Cooling System Set,<br> 4mm Allan Key,<br> 
+        <b>Warranty:</b> 12 Months (when registered)<br>
+        <b>Variable Speed: </b>No<br>
+        <b>Dimensions(mm):</b> H:307-377 x L:240 x W:166<br>
+        <b>Voltage Available:</b> 110v/240v"></span></td>
+      </td>
+      <td>1010</td>
+      <td>10</td>
+      <td>35</td>
+      <td>50</td>
+      <td>350</td>
+      <td>£375.00</td>
+      <td>£450.00</td>
+    </tr>
+    <tr>
+      <td>HMT V35 
+        <span class="info-button" onmouseover="showInfo(event)" onmouseout="hideInfo(event)" data-info="
+        <b>Magnet Size(mm):</b> 80x160 <br>
+        <b>Magnetic Adhesion:</b> 1000kg <br>
+        <b>Comes With:</b><br> Guard,<br> VersaDrive Rapid-Lock Adapter,<br> Site Case,<br> Gravity Fed Coolant System,<br> 
+        <b>Warranty:</b> 24 Months (when registered)<br>
+        <b>Variable Speed: </b>No<br>
+        <b>Dimensions(mm):</b> H:305-445 x L:220 x W:173<br>
+        <b>Voltage Available:</b> 110v<br>
+        <b>Stroke(mm):</b> 140"></span></td>
+      </td>
+      <td>850</td>
+      <td>9.5</td>
+      <td>35</td>
+      <td>110</td>
+      <td>750</td>
+      <td>£389.00</td>
+      <td>£466.80</td>
+    </tr>
+    <tr>
+      <td>Alfra Picollo 38/50B 
+        <span class="info-button" onmouseover="showInfo(event)" onmouseout="hideInfo(event)" data-info="
+        <b>Magnet Size(mm):</b> 70x185 <br>
+        <b>Magnetic Adhesion:</b> 917kg <br>
+        <b>Comes With:</b><br> Drill Chuck & Adaptor,<br> Safety Belt,<br> Guard,<br> Allan Keys,<br> 
+        <b>Warranty:</b> 12 Months <br>
+        <b>Variable Speed: </b>No<br>
+        <b>Dimensions(mm):</b> H:470 x L:300 x W:211<br>
+        <b>Voltage Available:</b> 110v/240v<br>
+        <b>Stroke(mm):</b> 129+86""></span></td>
+      </td>
+      <td>1100</td>
+      <td>11.5</td>
+      <td>38</td>
+      <td>50</td>
+      <td>450</td>
+      <td>£425.00</td>
+      <td>£510.00</td>
+    </tr>
+    <tr>
+      <td>Rotabroach Commando 40/50 
+        <span class="info-button" onmouseover="showInfo(event)" onmouseout="hideInfo(event)" data-info="
+        <b>Magnet Size(mm):</b> 80x165 <br>
+        <b>Magnetic Adhesion:</b> 800kg <br>
+        <b>Comes With:</b><br> Drill Chuck & Adapter,<br> Free 7 Piece HSS Cutter Set: <br>2x14mm, 2x18mm, 1x22mm & 2 pins,<br> 
+        <b>Warranty:</b> 12 Months (when registered)<br>
+        <b>Variable Speed: </b>Yes<br>
+        <b>Dimensions(mm):</b> H:510 x L:265 x W:180<br>
+        <b>Voltage Available:</b> 110v/240v<br>
+        <b>Stroke(mm):</b> 85""></span></td>
+      </td>
+      <td>1100</td>
+      <td>14.6</td>
+      <td>40</td>
+      <td>50</td>
+      <td>270/610</td>
+      <td>£309.00</td>
+      <td>£370.80</td>
+    </tr>
+    <tr>
+      <td>Rotabroach E40 <span class="info-button" onmouseover="showInfo(event)" onmouseout="hideInfo(event)" data-info="
+        <b>Magnet Size(mm):</b> 80x180 <br>
+        <b>Magnetic Adhesion:</b> 1000kg <br>
+        <b>Comes With:</b><br> Drill Chuck & Adapter,<br>4mm Tee Handled Hexagon Key, <br>3mm Hex Key,<br> Safety Glasses,<br> Carbon Brush (2x Spare), <br>
+        <b>Warranty:</b> 12 Months (when registered)<br>
+        <b>Variable Speed: </b>No<br>
+        <b>Dimensions(mm):</b> H:434-514 x L:285 x W:185<br>
+        <b>Voltage Available:</b> 110v<br>
+        <b>Stroke(mm):</b> 80""></span></td>
+      <td>1200</td>
+      <td>12.6</td>
+      <td>40</td>
+      <td>50</td>
+      <td>300/600</td>
+      <td>£395.00</td>
+      <td>£474.00</td>
+    </tr>
+    <tr>
+      <td>Rotabroach E50 <span class="info-button" onmouseover="showInfo(event)" onmouseout="hideInfo(event)" data-info="
+        <b>Magnet Size(mm):</b> 98x200 <br>
+        <b>Magnetic Adhesion:</b> 1350kg <br>
+        <b>Comes With:</b><br> Drill Chuck & Adapter,<br>6mm Hexagon Spanner, <br>3mm Hex Key,<br>Drift,<br>Arbor Shank,<br> Safety Glasses,<br> Carbon Brush (2x Spare), <br>
+        <b>Warranty:</b> 12 Months (when registered)<br>
+        <b>Variable Speed: </b>Yes<br>
+        <b>Dimensions(mm):</b> H:446-586 x L:315 x W:195<br>
+        <b>Voltage Available:</b> 110v<br>
+        <b>Stroke(mm):</b> 140""></span></td>
+      <td>1500</td>
+      <td>15.8</td>
+      <td>50</td>
+      <td>50</td>
+      <td>265/500</td>
+      <td>£595.00</td>
+      <td>£714.00</td>
+    </tr>
+    <tr>
+      <td>HMT V60T <span class="info-button" onmouseover="showInfo(event)" onmouseout="hideInfo(event)" data-info="
+        <b>Magnet Size(mm):</b> 100x200 <br>
+        <b>Magnetic Adhesion:</b> 1750kg <br>
+        <b>Comes With:</b><br>Guard,<br>MT2 Broaching Arbor, <br>Shock Resistant Site Case,<br>Gravity Fed Coolant System,<br>VersaDrive Quick Change Arbor,<br> 
+        <b>Warranty:</b> 12 Months (when registered)<br>
+        <b>Variable Speed: </b>Yes<br>
+        <b>Dimensions(mm):</b> H:528-713 x L:375 x W:214<br>
+        <b>Voltage Available:</b> 110v<br>
+        <b>Stroke(mm):</b> 185""></span></td>
+      <td>1150</td>
+      <td>18</td>
+      <td>60</td>
+      <td>150</td>
+      <td>100-250 / 180-450</td>
+      <td>£989.00</td>
+      <td>£1,186.80</td>
+    </tr>
+    <tr>
+      <td>Rotabroach E75 <span class="info-button" onmouseover="showInfo(event)" onmouseout="hideInfo(event)" data-info="
+        <b>Magnet Size(mm):</b> 114x220 <br>
+        <b>Magnetic Adhesion:</b> 1885kg <br>
+        <b>Comes With:</b><br> Drill Chuck & Adapter,<br>6mm Hexagon Spanner <br>3mm Hex Key<br>Drift<br>Arbor Shank<br> Safety Glasses<br> Brush<br>Pilot Pin<br> 
+        <b>Warranty:</b> 12 Months (when registered)<br>
+        <b>Variable Speed: </b>Yes<br>
+        <b>Dimensions(mm):</b> H:528-713 x L:375 x W:214<br>
+        <b>Voltage Available:</b> 110v<br>
+        <b>Stroke(mm):</b> 185""></span></td>
+      <td>1800</td>
+      <td>23.5</td>
+      <td>75</td>
+      <td>75</td>
+      <td>180/500</td>
+      <td>£705.00</td>
+      <td>£846.00</td>
+    </tr>
+    <tr>
+      <td>Rotabroach E100 <span class="info-button" onmouseover="showInfo(event)" onmouseout="hideInfo(event)" data-info="
+        <b>Magnet Size(mm):</b> 114x228 <br>
+        <b>Magnetic Adhesion:</b> 2038kg <br>
+        <b>Comes With:</b><br> Drill Chuck & Adapter,<br>6mm Hexagon Spanner <br>3mm Hex Key<br>Drift<br>Arbor Shank<br> Safety Glasses<br> Brush<br>Pilot Pin<br> 
+        <b>Warranty:</b> 12 Months (when registered)<br>
+        <b>Variable Speed: </b>Yes<br>
+        <b>Dimensions(mm):</b> H:533-733 x L:370 x W:230<br>
+        <b>Voltage Available:</b> 110v<br>
+        <b>Stroke(mm):</b> 200""></span></td>
+      <td>2000</td>
+      <td>24.8</td>
+      <td>100</td>
+      <td>100</td>
+      <td>129/208/434/700</td>
+      <td>£769.00</td>
+      <td>£922.80</td>
+    </tr>
+  </table>
+
+
+  <div class="refresh-button">
+    <button onclick="location.reload()">Refresh Table</button>
+  </div>
+
+  <div class="back-button">
+    <button onclick="window.location.href='home.html'">Back to Home</button>
+  </div>
+
+
+
+  <script>
+
+    function showInfo(event) {
+      var info = event.target.getAttribute('data-info');
+      var tooltip = document.createElement('div');
+      tooltip.className = 'info-tooltip';
+      tooltip.innerHTML = info.replace(/\n/g, '<br>'); 
+
+      var tooltipRect = event.target.getBoundingClientRect();
+      var tooltipTop = tooltipRect.top - tooltip.offsetHeight - 200; // Adjust the 10 as needed
+      if (tooltipTop < 10) {
+        tooltipTop = tooltipRect.bottom + 200; // Adjust the 10 as needed
+      }
+      tooltip.style.top = tooltipTop + 'px';
+
+      event.target.appendChild(tooltip);
+    }
+
+    function hideInfo(event) {
+      var tooltip = event.target.querySelector('.info-tooltip');
+      if (tooltip) {
+        tooltip.remove();
+      }
+    }
+    function filterMachines() {
+      var maxDiam = parseFloat(document.getElementById('maxDiam').value);
+      var maxDepth = parseFloat(document.getElementById('maxDepth').value);
+
+      var rows = document.getElementById('machineTable').rows;
+      for (var i = rows.length - 1; i > 0; i--) {
+        var row = rows[i];
+        var rowMaxDiam = parseFloat(row.cells[3].innerText);
+        var rowMaxDepth = parseFloat(row.cells[4].innerText);
+
+        if (maxDiam > rowMaxDiam || maxDepth > rowMaxDepth) {
+          row.parentNode.removeChild(row);
+        }
+      }
+    }
+  </script>
+
+<p>See related products on our website <a href="https://www.orbitalfasteners.co.uk/categories/rotabroach-mag-drill.-cutters-machines" target="_blank">Click Here</a>.</p>
+</body>
+</html>

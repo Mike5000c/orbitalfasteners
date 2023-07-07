@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+  <title>Countersunk Sockets</title>
+  <style>
+
+    html{
+      background-image: url("https://lh3.googleusercontent.com/Xpjy3FUFlW5lENM4CLjVe1yYf7v0w8z9SHyjN4HU8ZXfrwboZP_QtM6Xs_kc7359EdMBzgoOQXSKwZlZ2Qn_LV8eVLaQMNvudnpB_bhLa3u1KlW2MX-0ApAKFchYIHZQ3eLWPJ1O=w2400");
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;    
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 50px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 28px;
+      COLOR: #D60202;
+    }
+
+    select {
+      margin-top: 20px;
+      font-size: 20px;
+      COLOR: #4C6AAF;
+      width: 400px;
+      height: 50px;
+    }
+
+    .result-box {
+      margin: 10px;
+      border: 3px solid #4c6aaf;
+      padding: 10px;
+      width: 200px;
+      display: inline-block;
+      font-size: 18px;
+      color: #4c6aaf;
+    }
+
+    .result-box p {
+	font-size: 26px;
+	font-weight: bold;
+	color:#d60202;
+    }
+
+    .back-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-button button {
+      background-color: #4c6aaf;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+  .result-box p {
+    font-size: 30px; /* Increase the font size */
+    font-weight: bold;
+    color:darkblue;
+  }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Countersunk Socket Screws</h1>
+    <select id="diameter">
+      <option value="">Select Diameter</option>
+      <option value="M3">M3</option>
+      <option value="M4">M4</option>
+      <option value="M5">M5</option>
+      <option value="M6">M6</option>
+      <option value="M8">M8</option>
+      <option value="M10">M10</option>
+      <option value="M12">M12</option>
+    </select>
+
+    <div class="result-container">
+      <div class="result-box">
+        <h2>Head Diameter<br>(mm)</h2>
+        <p id="diam"></p>
+      </div>
+      <div class="result-box">
+        <h2>Head Depth<br>(mm)</h2>
+        <p id="depth"></p>
+      </div>
+      <div class="result-box">
+        <h2>Allan Key Size<br>(mm)</h2>
+        <p id="allan"></p>
+      </div>
+    <br><br><br><br>
+
+    <img src="./images/csks.png" height="280">
+
+
+    
+
+  
+  <script>
+    document.getElementById('diameter').addEventListener('change', function () {
+      var diameter = this.value;
+      var diam = '-<br>-';
+      var depth = '-<br>-';
+      var allan = '-<br>-';
+
+      switch (diameter) {
+        case 'M3':
+          diam = '6';
+          depth = '1.7';
+          allan = '2';
+          break;
+
+        case 'M4':
+          diam = '8';
+          depth = '2.3';
+          allan = '2.5';
+          break;
+
+        case 'M5':
+          diam = '10';
+          depth = '2.8';
+          allan = '3';
+          break;
+
+        case 'M6':
+          diam = '12';
+          depth = '3.3';
+          allan = '4';
+          break;
+
+        case 'M8':
+          diam = '16';
+          depth = '4.4';
+          allan = '5';
+          break;
+
+        case 'M10':
+          diam = '20';
+          depth = '5.5';
+          allan = '6';
+          break;
+
+        case 'M12':
+          diam = '24';
+          depth = '6.5';
+          allan = '8';
+          break;
+
+      }
+
+      document.getElementById('diam').innerHTML = diam;
+      document.getElementById('depth').innerHTML = depth;
+      document.getElementById('allan').innerHTML = allan;
+
+    });
+  </script>
+    <div class="back-button"><BR>
+      <button onclick="window.location.href='home.html'">Back to Home</button>
+    </div>
+    <BR>
+    <p>See related products on our website <a href="https://www.orbitalfasteners.co.uk/categories/socket-allen-countersunk-screws-grade-10-9-din-7991" target="_blank">Click Here</a>.</p>
+  </div>
+</body>
+</html>

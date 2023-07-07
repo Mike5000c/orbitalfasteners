@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bolt Specifications</title>
+  <style>
+    body {
+      background: url("https://lh3.googleusercontent.com/Xpjy3FUFlW5lENM4CLjVe1yYf7v0w8z9SHyjN4HU8ZXfrwboZP_QtM6Xs_kc7359EdMBzgoOQXSKwZlZ2Qn_LV8eVLaQMNvudnpB_bhLa3u1KlW2MX-0ApAKFchYIHZQ3eLWPJ1O=w2400") center/cover fixed; 
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+      text-size: 20px;
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #d60202
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #4c6aaf
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #4c6aaf;
+    }
+
+    select {
+      width: 50%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    p.result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .image-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .image-container img {
+      max-width: 800px;
+    }
+
+    .chart-container {
+      display: none;
+    }
+      display: none;
+
+    .back-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-button button {
+      background-color: #4c6aaf;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .maximumFixture {
+      color: #d60202;
+    }
+
+    .screwdriverBit{
+      color: #d60202;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Countersunk APT Anchors</h1>
+    <div class="chart-container">
+      <h2>Available Sizes</h2>
+      <table>
+        <tr>
+          <th></th>
+          <th>M6</th>
+          <th>M8</th>
+          <th>M10</th>
+        </tr>
+        <tr>
+          <th>50</th>
+          <td>20</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>60</th>
+          <td></td>
+          <td>20</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <th>75</th>
+          <td>45</td>
+          <td>35</td>
+          <td>25</td>
+        </tr>
+        <tr>
+          <th>100</th>
+          <td>55</td>
+          <td>60</td>
+          <td>45</td>
+        </tr>
+        <tr>
+          <th>120</th>
+          <td></td>
+          <td></td>
+          <td>65</td>
+        </tr>
+        <tr>
+          <th>130</th>
+          <td>85</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>140</th>
+          <td></td>
+          <td>85</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>150</th>
+          <td>102</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>160</th>
+          <td></td>
+          <td></td>
+          <td>105</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="selection">
+      <h2>Bolt Selection</h2>
+      <label for="diameterSelect"><B>Diameter:</B></label>
+      <select id="diameterSelect">
+        <option value="">-- Select Diameter --</option>
+        <option value="6">M6</option>
+        <option value="8">M8</option>
+        <option value="10">M10</option>
+      </select>
+
+      <label for="lengthSelect"><B>Length:</b></label>
+      <select id="lengthSelect" disabled>
+        <option value="">-- Select Length --</option>
+      </select>
+    </div>
+
+    <div class="results">
+      <h2>Results</h2>
+      <div>
+        <span class="label"><h2>Maximum Fixture Thickness (mm):</h2></span>
+        <h1><span class="maximumFixture"></span></h1><br><br>
+      </div>
+      <div>
+        <span class="label"><h2>Screwdriver Bit:</h2></span>
+        <h1><span class="screwdriverBit"></span></h1>
+      </div>
+    </div>
+
+  <script>
+    const boltData = {
+      "6": {
+        "50": {
+          maxFixture: "20",
+          screwdriverBit: "T30"
+        },
+        "60": {
+          maxFixture: "",
+          screwdriverBit: "T30"
+        },
+        "75": {
+          maxFixture: "45",
+          screwdriverBit: "T30"
+        },
+        "100": {
+          maxFixture: "55",
+          screwdriverBit: "T30"
+        },
+        "120": {
+          maxFixture: "",
+          screwdriverBit: "T30"
+        },
+        "130": {
+          maxFixture: "85",
+          screwdriverBit: "T30"
+        },
+        "140": {
+          maxFixture: "",
+          screwdriverBit: "T30"
+        },
+        "150": {
+          maxFixture: "102",
+          screwdriverBit: "T30"
+        },
+        "160": {
+          maxFixture: "",
+          screwdriverBit: "T30"
+        }
+      },
+      "8": {
+        "50": {
+          maxFixture: "",
+          screwdriverBit: "T45"
+        },
+        "60": {
+          maxFixture: "20",
+          screwdriverBit: "T45"
+        },
+        "75": {
+          maxFixture: "35",
+          screwdriverBit: "T45"
+        },
+        "100": {
+          maxFixture: "60",
+          screwdriverBit: "T45"
+        },
+        "120": {
+          maxFixture: "",
+          screwdriverBit: "T45"
+        },
+        "130": {
+          maxFixture: "",
+          screwdriverBit: "T45"
+        },
+        "140": {
+          maxFixture: "85",
+          screwdriverBit: "T45"
+        },
+        "150": {
+          maxFixture: "",
+          screwdriverBit: "T45"
+        },
+        "160": {
+          maxFixture: "",
+          screwdriverBit: "T45"
+        }
+      },
+      "10": {
+        "50": {
+          maxFixture: "",
+          screwdriverBit: "T50"
+        },
+        "60": {
+          maxFixture: "10",
+          screwdriverBit: "T50"
+        },
+        "75": {
+          maxFixture: "25",
+          screwdriverBit: "T50"
+        },
+        "100": {
+          maxFixture: "45",
+          screwdriverBit: "T50"
+        },
+        "120": {
+          maxFixture: "65",
+          screwdriverBit: "T50"
+        },
+        "130": {
+          maxFixture: "",
+          screwdriverBit: "T50"
+        },
+        "140": {
+          maxFixture: "",
+          screwdriverBit: "T50"
+        },
+        "150": {
+          maxFixture: "",
+          screwdriverBit: "T50"
+        },
+        "160": {
+          maxFixture: "105",
+          screwdriverBit: "T50"
+        }
+      }
+    };
+
+    const diameterSelect = document.getElementById("diameterSelect");
+    const lengthSelect = document.getElementById("lengthSelect");
+    const maximumFixtureElement = document.querySelector(".maximumFixture");
+    const screwdriverBitElement = document.querySelector(".screwdriverBit");
+
+    diameterSelect.addEventListener("change", handleDiameterChange);
+    lengthSelect.addEventListener("change", handleLengthChange);
+
+    function handleDiameterChange() {
+      const selectedDiameter = diameterSelect.value;
+
+      // Reset the length select options
+      lengthSelect.innerHTML = '<option value="">-- Select Length --</option>';
+      lengthSelect.disabled = true;
+      maximumFixtureElement.textContent = "";
+      screwdriverBitElement.textContent = "";
+
+      if (selectedDiameter) {
+        const availableLengths = Object.keys(boltData[selectedDiameter]).filter(length => boltData[selectedDiameter][length].maxFixture !== "");
+        
+        if (availableLengths.length > 0) {
+          availableLengths.forEach(length => {
+            const option = document.createElement("option");
+            option.value = length;
+            option.textContent = length;
+            lengthSelect.appendChild(option);
+          });
+
+          lengthSelect.disabled = false;
+        }
+      }
+    }
+
+    function handleLengthChange() {
+      const selectedDiameter = diameterSelect.value;
+      const selectedLength = lengthSelect.value;
+
+      if (selectedDiameter && selectedLength) {
+        const maxFixture = boltData[selectedDiameter][selectedLength].maxFixture;
+        const screwdriverBit = boltData[selectedDiameter][selectedLength].screwdriverBit;
+
+        maximumFixtureElement.textContent = maxFixture;
+        screwdriverBitElement.textContent = screwdriverBit;
+      }
+    }
+  </script>
+  <br><div class="back-button">
+    <button onclick="window.location.href='home.html'">Back to Home</button>
+  </div>
+
+<p>See related products on our website <a href="https://www.orbitalfasteners.co.uk/categories/anchor-screwbolt-fixing-hxb-concreto-anchor-screw" target="_blank">Click Here</a>.</p>
+</body>
+</html>

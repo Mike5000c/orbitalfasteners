@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    rel="stylesheet"
+    href="./styles.css"
+    />
+  <title>Homepage</title>
+  <style>
+
+
+    .logo {
+      text-align: center;
+      padding-top: 20px;
+    }
+
+    .logo img {
+      width: 200px;
+      height: auto;
+    }
+
+    h2{
+       color:#4c6aaf;
+       font-size:24px;
+    }
+
+    h1{
+       color:#d60202;
+       font-size: 30px;
+       font-weight: 800;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .box {
+      width: 28%;
+      height:170PX;
+      background-color: rgba(255, 255, 255, 1);
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 10px;
+      font-family: Trebuchet MS;
+      text-align: center;
+      font-size: 18px;
+      color: #4c6aaf;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 8px solid #4c6aaf; /* Add this line */
+    }
+
+    .box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px #4c6aaf;
+    }
+
+    .box span {
+      margin-bottom: 10px;
+    }
+
+    .box img {
+      max-width: 80px;
+      max-height: 80px;
+    }
+
+    .search-box {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .search-input {
+      width: 300px;
+      padding: 20px;
+      font-size: 20px;
+    }
+
+    .boxImg{
+      width:100px;
+      height:100px;
+      margin-top: 10px;
+    }
+  </style>
+  <script>
+    function filterBoxes() {
+      var input = document.getElementById("search-input");
+      var filter = input.value.toUpperCase();
+      var boxes = document.getElementsByClassName("box");
+
+      for (var i = 0; i < boxes.length; i++) {
+        var box = boxes[i];
+        var text = box.textContent || box.innerText;
+        if (text.toUpperCase().indexOf(filter) > -1) {
+          box.style.display = "";
+        } else {
+          box.style.display = "none";
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="logo">
+<a href="https://www.orbitalfasteners.co.uk" target="_blank">
+  <img src="https://www.orbitalfasteners.co.uk/img/orbital/logo/orbital-fasteners.png" alt="Orbital Fasteners Logo">
+</a>
+  </div>
+<h1>Orbital Fasteners</h1>
+<h2>Technical Information</h2>
+
+  <div class="search-box">
+    <input type="text" id="search-input" class="search-input" placeholder="Search" onkeyup="filterBoxes()">
+  </div>
+
+  <div class="container">
+    <div class="box" onclick="window.location.href='Bolt Socket.HTML'">
+      <span>Bolt Socket Size</span>
+      <div style="display: flex; justify-content: center; align-items: center;">
+        <img class="boxImg" src="https://lh3.googleusercontent.com/D1O1vyeNH4fTXnQZ8iKF7LFd_flxLPP3IGtmNOUe2bR05aF6cFhMt5inj4dE4oE2JRBs8auEKLM94ltynwkVFQd2LyJkzbt4IjBNaIMObgEzBcYnygswibL8m3cPArOrZGOL61sr=w2400" alt="Image for Box 1" HEIGHT="100" width="100">
+      </div>
+    </div>
+
+    <div class="box" onclick="window.location.href='Tap and Drill Bit.HTML'">
+      <span>Tapping Drill Size</span>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+        <div style="flex: 1;"></div>
+        <img class="boxImg" src="https://lh3.googleusercontent.com/Y-2ON7XUNv77_AMxikSaZDeWHVWRBECQR7WkUAJZA5SQmIzwjcg6LUV1GUKQBOfLBRzBhQW_LxR5j_rhiS5bVW-BtSynIGRlGNm4udkfWx0sU0BMgGL0b3jDLslL_Nw6OiKlm1YX=s295-p-k" alt="Image for Box 2" height="100" width="100">
+      </div>
+    </div>
+
+    <div class="box" onclick="window.location.href='Bolt Thread Length.HTML'">
+      <span>Bolt Thread Length</span>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+        <div style="flex: 1;"></div>
+        <img class="boxImg" src="https://lh3.googleusercontent.com/pw/AJFCJaVssz5W6uVvY5qi4rO4mmEXnTLT4YSgbKz6Km2zIctl3u1nMYpHeFA4ZhFkICB_TKhzUhki39TW93g0CbuTgTNTGwar28hmuupHfNinE-dd9_0oZg=w2400" alt="Image for Box 3" height="100" width="100">
+      </div>
+    </div>
+
+    <div class="box" onclick="window.location.href='Broaching Machines.html'">
+      <span>Broaching Machines</span>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+        <div style="flex: 1;"></div>
+        <img class="boxImg" src="https://lh3.googleusercontent.com/dQaOEzghHljE1icj8eHluyKfYYTT0-SRzqwIN-e9beTD66n_M2jxs5jE4_jhqCXA0ueq6gngXkwyEJSQ9cwTLWpITKfYjn0PZNOvOmKp9LU89OiZK5MdXRVuiyHiGTPhtrpqxMJE=w2400" alt="Image for Box 4" height="100" width="100">
+      </div>
+    </div>
+
+
+    <div class="box" onclick="window.location.href='CONVERSIONS.HTML'">
+      <span>Metric and Imperial Conversions</span>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+        <div style="flex: 1;"></div>
+        <img class="boxImg" src="https://lh3.googleusercontent.com/pw/AJFCJaXEkqvNxRAfn5uNe524dvHGTT5WroPLJnE8lf9Jv_wYvjnn1DDbMq5zDZd-5kNDHuEA3jw469-4GTVZ6o50LpcJl4mp3BjyGgGuzJNoUz7bAY9U5g=s257-p-k" alt="Image for Box 5" height="100" width="100">
+      </div>
+    </div>
+
+
+    <div class="box" onclick="window.location.href='Resin Holes.html'">
+      <span>Resin Stud and Holes Guide</span>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+        <div style="flex: 1;"></div>
+        <img class="boxImg" src="https://lh3.googleusercontent.com/FoQcOnEzem0N4EuEmFNpay3nMr3wBjTVkfAWNk60T0-ClnX812pZjxJia3FsxtLk_-bDmP0k1JdtvplO4dDUyQ1xP8W14DCaeqB7x_ecS0Ex4CuL9Do4Y796z56fJzzctNxGvW_Y=s267-p-k" alt="Image for Box 6" height="100" width="100">
+      </div>
+    </div>
+
+
+    <div class="box" onclick="window.location.href='ubolt.html'">
+      <span>U Bolt</span>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+        <div style="flex: 1;"></div>
+        <img class="boxImg" src="https://lh3.googleusercontent.com/pw/AJFCJaXXuIcBARBym_KyVoroGdyEB370Wfj79_u_aR8kVqHVYBWpNC58n-I8RE_BEylVJ6bNx4AcKJFWzCRMzp4sse2TqtBaKtZjqKm26p3IZhZqRKXZ1g=s213-p-k" alt="Image for Box 7" height="100" width="100">
+      </div>
+    </div>
+
+    <div class="box" onclick="window.location.href='extubolt.html'">
+      <span>Extended U Bolt</span>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+        <div style="flex: 1;"></div>
+        <img class="boxImg" src="https://lh3.googleusercontent.com/pw/AJFCJaU8XIsZ7hSyn2dMBWSCqvKVF6Sal8KHMSr08sMvoHMuw-R5-0QjWP7lPJU4zLJ2lj6i4KKvpoRUUGRsyV_HdFbHf9K40DJzxrqRyZGBM3Ej9PdDPg=s213-p-k" alt="Image for Box 8" height="100" width="100">
+      </div>
+    </div>
+
+    <div class="box" onclick="window.location.href='boltssets.html'">
+      <span>Hex Bolt & Set Spec</span>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+        <div style="flex: 1;"></div>
+        <img class="boxImg" src="https://lh3.googleusercontent.com/V5W_1nlws1RrKdINdLDwGDSiqxfMrierJ32AVnuqO2XWHgZzXZN3Tsd4vCBo7Cr2lYU-1JllwMbxGLRMY-IgRm8vtGAJH5tx6H2eDbrf0cVDB-tDeDWbJj2iDQWQM7L-IpbJdL7pWA=w2400" alt="Image for Box 9" height="100" width="100">
+      </div>
+    </div>
+
+    <div class="box" onclick="window.location.href='APT.html'">
+      <span>Hexagon Head APT Concrete Anchors</span>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+        <div style="flex: 1;"></div>
+        <img class="boxImg" src="https://lh3.googleusercontent.com/fva3vlIWTSou93mzGtePbn0lEAk9p6VlHaZZdlTqNpia7pHyRrFpCCY7UEgm_JJTuQn4WZjalHsHqul65YCPYNClxgXsnR9wCM26Ef3WkknvXCd9Z79n6Zc8yr54etF3Dg6KeHcaQA=w2400" alt="Image for Box 10" height="100" width="100">
+      </div>
+    </div>
+
+    <div class="box" onclick="window.location.href='apt csk.html'">
+      <span>Countersunk APT Concrete Anchors</span>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+        <div style="flex: 1;"></div>
+        <img class="boxImg" src="https://lh3.googleusercontent.com/1Wzmpzg70yVQAOsxuO-NdTjj4PFhIYeHhTwTNUBXvYiQ0u9cqtPUDJZLDQJfTVZUXVCdXPsg1Z5ksfQUOWgJ5FNaH-DbEGHzr5fRbHFngEHaMteMfYUoENVRH5q7XjFUVNDfO-LXvw=w2400" alt="Image for Box 11" height="100" width="100">
+      </div>
+    </div>
+
+
+
+    <div class="box" onclick="window.location.href='WASHERSPEC.HTML'">
+      <span>Washer Diameter and Thickness</span>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+        <div style="flex: 1;"></div>
+        <img class="boxImg" src="https://lh3.googleusercontent.com/nJVSJR6FWpJ7W4Jk1mJbQ8mbSjzI9Tb80TFEsPChE8DttXOkaAjoSy4fG_DyiJzXlB9wcVyt02lbg7wtoN_nIMza_FFZ_0wG86hT3XCuMezp2h3nTJVxjLoMnvdGgcNSVQJSLTVv3w=s243-p-k" alt="Image for Box 12" height="100" width="100">
+      </div>
+    </div>
+
+    <div class="box" onclick="window.location.href='nutspec.HTML'">
+      <span>Nut Spec</span>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+        <div style="flex: 1;"></div>
+        <img class="boxImg" src="./images/nut.png" alt="Image for Box 13" height="100" width="100">
+      </div>
+    </div>
+
+    <div class="box" onclick="window.location.href='buttons.HTML'">
+      <span>Button Socket Screws</span>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+        <div style="flex: 1;"></div>
+        <img class="boxImg" src="./images/button.png" alt="Image for Box 14" height="100" width="100">
+      </div>
+    </div>
+
+    <div class="box" onclick="window.location.href='csksockets.HTML'">
+      <span>Countersunk Socket Screws (CSK)</span>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+        <div style="flex: 1;"></div>
+        <img class="boxImg" src="./images/CSK.png" alt="Image for Box 15" height="100" width="100">
+      </div>
+    </div>
+
+    <div class="box" onclick="window.location.href='caps.HTML'">
+      <span>Socket Cap Screws</span>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start;">
+        <div style="flex: 1;"></div>
+        <img class="boxImg" src="./images/cap.png" alt="Image for Box 16" height="100" width="100">
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

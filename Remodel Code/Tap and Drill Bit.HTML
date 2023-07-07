@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tap and Drill Bit Size Calculator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url("https://lh3.googleusercontent.com/Xpjy3FUFlW5lENM4CLjVe1yYf7v0w8z9SHyjN4HU8ZXfrwboZP_QtM6Xs_kc7359EdMBzgoOQXSKwZlZ2Qn_LV8eVLaQMNvudnpB_bhLa3u1KlW2MX-0ApAKFchYIHZQ3eLWPJ1O=w2400") center/cover;
+      flex-direction: column;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    select {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: #d60202
+    }
+
+    h2{
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #4c6aaf
+    }
+
+    span{
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #4c6aaf
+    }
+
+
+    .result-box {
+      background-color: #4c6aaf;
+      border: 2px solid #333;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      color: white
+    }
+
+    .result-box p {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .logo {
+      width: 200px;
+      margin-bottom: 20px;
+    }
+    .back-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-button button {
+      background-color: #4c6aaf;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    p a {
+      font-family: Arial, sans-serif;
+      color: #333;
+      text-decoration: none;
+    }
+
+    p a:hover {
+      text-decoration: underline;
+    }
+    .purple-link {
+      color: purple;
+    }
+
+    html{
+      color: #4c6aaf
+    }
+
+    #tapsize{
+      color:#4c6aaf;
+      font-weight:550
+    }
+  </style>
+</head>
+<body>
+  <header>
+
+  </header>
+
+  <h1>Tap and Drill Bit Size Calculator</h1>
+  <span><b>For standard metric threads.</b></span> <br>
+
+  <label for="tapSize" id="tapsize">Select Tap Size:</label>
+  <select id="tapSize">
+    <!-- Ranging from M1 to M5 in 0.5mm increments -->
+    <option value="M1">M1</option>
+    <option value="M1.5">M1.5</option>
+    <option value="M2">M2</option>
+    <option value="M2.5">M2.5</option>
+    <option value="M3">M3</option>
+    <option value="M3.5">M3.5</option>
+    <option value="M4">M4</option>
+    <option value="M4.5">M4.5</option>
+    <option value="M5">M5</option>
+
+    <!-- Standard sizes from M6 to M50 -->
+    <option value="M6">M6</option>
+    <option value="M8">M8</option>
+    <option value="M10">M10</option>
+    <option value="M12">M12</option>
+    <option value="M14">M14</option>
+    <option value="M16">M16</option>
+    <option value="M18">M18</option>
+    <option value="M20">M20</option>
+    <option value="M22">M22</option>
+    <option value="M24">M24</option>
+    <option value="M27">M27</option>
+    <option value="M30">M30</option>
+    <option value="M33">M33</option>
+    <option value="M36">M36</option>
+    <option value="M39">M39</option>
+    <option value="M42">M42</option>
+    <option value="M45">M45</option>
+    <option value="M48">M48</option>
+    <option value="M52">M52</option>
+  </select>
+
+  <h2>Drill Bit Size:</h2>
+  <div class="result-box">
+    <p id="drillBitSize"></p>
+  </div>
+
+  <h2>Thread Pitch:</h2>
+  <div class="result-box">
+    <p id="threadPitch"></p>
+  </div>
+
+  <script>
+    var tapSizeSelect = document.getElementById('tapSize');
+    var drillBitSizeParagraph = document.getElementById('drillBitSize');
+    var threadPitchParagraph = document.getElementById('threadPitch');
+
+    var tapInfo = {
+      "M1": { drillBitSize: "0.8mm", threadPitch: "0.25mm" },
+      "M1.5": { drillBitSize: "1.2mm", threadPitch: "0.35mm" },
+      "M2": { drillBitSize: "1.6mm", threadPitch: "0.4mm" },
+      "M2.5": { drillBitSize: "2.05mm", threadPitch: "0.45mm" },
+      "M3": { drillBitSize: "2.5mm", threadPitch: "0.5mm" },
+      "M3.5": { drillBitSize: "2.9mm", threadPitch: "0.6mm" },
+      "M4": { drillBitSize: "3.3mm", threadPitch: "0.7mm" },
+      "M4.5": { drillBitSize: "3.7mm", threadPitch: "0.75mm" },
+      "M5": { drillBitSize: "4.2mm", threadPitch: "0.8mm" },
+      "M6": { drillBitSize: "5mm", threadPitch: "1mm" },
+      "M8": { drillBitSize: "6.8mm", threadPitch: "1.25mm" },
+      "M10": { drillBitSize: "8.5mm", threadPitch: "1.5mm" },
+      "M12": { drillBitSize: "10.2mm", threadPitch: "1.75mm" },
+      "M14": { drillBitSize: "12mm", threadPitch: "2mm" },
+      "M16": { drillBitSize: "14mm", threadPitch: "2mm" },
+      "M18": { drillBitSize: "15.5mm", threadPitch: "2.5mm" },
+      "M20": { drillBitSize: "17.5mm", threadPitch: "2.5mm" },
+      "M22": { drillBitSize: "19.5mm", threadPitch: "2.5mm" },
+      "M24": { drillBitSize: "21mm", threadPitch: "3mm" },
+      "M27": { drillBitSize: "24mm", threadPitch: "3mm" },
+      "M30": { drillBitSize: "26.5mm", threadPitch: "3.5mm" },
+      "M33": { drillBitSize: "29.5mm", threadPitch: "3.5mm" },
+      "M36": { drillBitSize: "32mm", threadPitch: "4mm" },
+      "M39": { drillBitSize: "35mm", threadPitch: "4mm" },
+      "M42": { drillBitSize: "37.5mm", threadPitch: "4.5mm" },
+      "M45": { drillBitSize: "40.5mm", threadPitch: "4.5mm" },
+      "M48": { drillBitSize: "43mm", threadPitch: "5mm" },
+      "M52": { drillBitSize: "47mm", threadPitch: "5mm" }
+    };
+
+    function updateDrillBitAndThreadPitch() {
+      var selectedTapSize = tapSizeSelect.value;
+      var selectedTapInfo = tapInfo[selectedTapSize];
+      drillBitSizeParagraph.textContent = selectedTapInfo.drillBitSize;
+      threadPitchParagraph.textContent = selectedTapInfo.threadPitch;
+    }
+
+    tapSizeSelect.addEventListener('change', updateDrillBitAndThreadPitch);
+
+    updateDrillBitAndThreadPitch();
+  </script>
+  <br><div class="back-button">
+    <button onclick="window.location.href='home.html'">Back to Home</button>
+  </div><BR>
+
+<p>See taps on our website <a href="https://www.orbitalfasteners.co.uk/categories/threading-tools-taps-dies" target="_blank">Click Here</a>.</p>
+<p>See drill bits on our website <a href="https://www.orbitalfasteners.co.uk/categories/drill-bits-for-metal" target="_blank">Click Here</a>.</p>
+
+</body>
+</html>

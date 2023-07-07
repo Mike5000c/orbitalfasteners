@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+  <title>Button Sockets</title>
+
+
+  <link
+    rel="stylesheet"
+    href="./styles.css"
+    />
+
+</head>
+<body>
+  <div class="container">
+    <h1>Button Socket Screws</h1>
+    <select id="diameter">
+      <option value="">Select Diameter</option>
+      <option value="M3">M3</option>
+      <option value="M4">M4</option>
+      <option value="M5">M5</option>
+      <option value="M6">M6</option>
+      <option value="M8">M8</option>
+      <option value="M10">M10</option>
+      <option value="M12">M12</option>
+    </select>
+
+    <div class="result-container">
+      <div class="result-box">
+        <h2>Head Diameter<br>(mm)</h2>
+        <p id="diam"></p>
+      </div>
+      <div class="result-box">
+        <h2>Head Depth<br>(mm)</h2>
+        <p id="depth"></p>
+      </div>
+      <div class="result-box">
+        <h2>Allan Key Size<br>(mm)</h2>
+        <p id="allan"></p>
+      </div>
+    <br><br><br><br>
+
+    <img src="./images/buttons.png">
+
+
+    
+
+  
+  <script>
+    document.getElementById('diameter').addEventListener('change', function () {
+      var diameter = this.value;
+      var diam = '-<br>-';
+      var depth = '-<br>-';
+      var allan = '-<br>-';
+
+      switch (diameter) {
+        case 'M3':
+          diam = '5.7';
+          depth = '1.65';
+          allan = '2';
+          break;
+
+        case 'M4':
+          diam = '7.6';
+          depth = '2.2';
+          allan = '2.5';
+          break;
+
+        case 'M5':
+          diam = '9.5';
+          depth = '2.75';
+          allan = '3';
+          break;
+
+        case 'M6':
+          diam = '10.5';
+          depth = '3.3';
+          allan = '4';
+          break;
+
+        case 'M8':
+          diam = '14';
+          depth = '4.4';
+          allan = '5';
+          break;
+
+        case 'M10':
+          diam = '17.5';
+          depth = '5.5';
+          allan = '6';
+          break;
+
+        case 'M12':
+          diam = '21';
+          depth = '6.6';
+          allan = '8';
+          break;
+
+      }
+
+      document.getElementById('diam').innerHTML = diam;
+      document.getElementById('depth').innerHTML = depth;
+      document.getElementById('allan').innerHTML = allan;
+
+    });
+  </script>
+    <div class="back-button"><BR>
+      <button onclick="window.location.href='home.html'">Back to Home</button>
+    </div>
+    <BR>
+    <p>See related products on our website <a href="https://www.orbitalfasteners.co.uk/categories/socket-allen-button-screws-grade-10-9-bs-4168-iso-7380" target="_blank">Click Here</a>.</p>
+  </div>
+</body>
+</html>

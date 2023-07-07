@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+  <title>Extended U-Bolt</title>
+  <style>
+
+    html{
+      background-image: url("https://lh3.googleusercontent.com/Xpjy3FUFlW5lENM4CLjVe1yYf7v0w8z9SHyjN4HU8ZXfrwboZP_QtM6Xs_kc7359EdMBzgoOQXSKwZlZ2Qn_LV8eVLaQMNvudnpB_bhLa3u1KlW2MX-0ApAKFchYIHZQ3eLWPJ1O=w2400");
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+
+      align-items: center;
+      justify-content: center;
+      height: 100vh;    
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 50px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 28px;
+      COLOR: #D60202;
+    
+    }
+
+    select {
+      margin-top: 20px;
+      font-size: 20px;
+      width: 400px;
+      height: 50px;
+    }
+
+    .result-box {
+      margin-top: 20px;
+      border: 1px solid black;
+      padding: 10px;
+      width: 200px;
+      display: inline-block;
+      font-size: 18px;
+      BORDER: 3PX SOLID #4c6aaf;
+      COLOR: #4C6AAF
+    }
+
+    .result-box p {
+	font-size: 26px;
+	font-weight: bold;
+        color:#D60202;
+    }
+
+    .back-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-button button {
+      background-color: #4c6aaf;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Extended U-Bolts</h1>
+    <select id="diameter">
+      <option value="">Select Diameter</option>
+      <option value="3/4">3/4"</option>
+      <option value="1">1"</option>
+      <option value="1 1/4">1 1/4"</option>
+      <option value="1 1/2">1 1/2"</option>
+      <option value="2">2"</option>
+      <option value="2 1/2">2 1/2"</option>
+      <option value="3">3"</option>
+      <option value="4">4"</option>
+    </select>
+
+    <div class="result-container">
+      <div class="result-box">
+        <h2>A.<BR>Distance Between Legs<br>(mm)</h2>
+        <p id="between"></p>
+      </div>
+      <div class="result-box">
+        <h2>B.<BR>Inside Top to Bottom<br>(mm)</h2>
+        <p id="topbottom"></p>
+      </div>
+      <div class="result-box">
+        <h2>C.<BR>Thread<br> Length<br>(mm)</h2>
+        <p id="threadl"></p>
+      </div>
+      <div class="result-box">
+        <h2>D.<BR>Thread Diameter<br><br></h2>
+        <p id="threadd"></p>
+      </div>
+    <br><br><br><br>
+
+    <img src="https://lh3.googleusercontent.com/pw/AJFCJaUs1ku0KtfT53a3oYPjn07DQamcAfx-PzV0RZxnVoIk0L0dX5sS7Eb1yBCY9fEwA3LUUz9r6OZXVH2juDaAa6HSwlU54M6OHpPqevZrx4U0pxi4Dg=w2400" alt="Image">
+
+
+    
+    <div class="back-button"><BR>
+      <button onclick="window.location.href='home.html'">Back to Home</button>
+    </div>
+    <BR>
+    <p>See related products on our website <a href="https://www.orbitalfasteners.co.uk/categories/washers" target="_blank">Click Here</a>.</p>
+  </div>
+  
+  <script>
+    document.getElementById('diameter').addEventListener('change', function () {
+      var diameter = this.value;
+      var between = '-';
+      var topbottom = '-';
+      var threadl = '-';
+      var threadd = '-';
+
+      switch (diameter) {
+        case '3/4':
+          between = '27';
+          topbottom = '103';
+          threadl = '75';
+          threadd = 'M6';
+          break;
+
+          case '1':
+          between = '34';
+          topbottom = '111';
+          threadl = '75';
+          threadd = 'M6';
+          break;
+
+          case '1 1/4':
+          between = '45';
+          topbottom = '122';
+          threadl = '85';
+          threadd = 'M10';
+          break;
+
+          case '1 1/2':
+          between = '51';
+          topbottom = '127';
+          threadl = '85';
+          threadd = 'M10';
+          break;
+
+          case '2':
+          between = '60';
+          topbottom = '140';
+          threadl = '85';
+          threadd = 'M10';
+          break;
+
+          case '2 1/2':
+          between = '76';
+          topbottom = '152';
+          threadl = '85';
+          threadd = 'M10';
+          break;
+
+          case '3':
+          between = '90';
+          topbottom = '168';
+          threadl = '90';
+          threadd = 'M12';
+          break;
+
+          case '4':
+          between = '114';
+          topbottom = '193';
+          threadl = '90';
+          threadd = 'M12';
+          break;
+      }
+
+      document.getElementById('between').innerHTML = between;
+      document.getElementById('topbottom').innerHTML = topbottom;
+      document.getElementById('threadl').innerHTML = threadl;
+      document.getElementById('threadd').innerHTML = threadd;
+      document.getElementById('formG').innerHTML = formG;
+    });
+  </script>
+
+</body>
+</html>

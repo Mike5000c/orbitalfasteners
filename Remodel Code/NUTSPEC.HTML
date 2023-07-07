@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+  <title>Nut Specs</title>
+  <style>
+
+    html{
+      background-image: url("https://lh3.googleusercontent.com/Xpjy3FUFlW5lENM4CLjVe1yYf7v0w8z9SHyjN4HU8ZXfrwboZP_QtM6Xs_kc7359EdMBzgoOQXSKwZlZ2Qn_LV8eVLaQMNvudnpB_bhLa3u1KlW2MX-0ApAKFchYIHZQ3eLWPJ1O=w2400");
+      background-position: center;
+      background-size: cover;
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;    
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 50px;
+      text-align: center;
+
+    }
+
+    h1 {
+      font-size: 28px;
+      COLOR: #D60202;
+    }
+
+    select {
+      margin-top: 20px;
+      font-size: 20px;
+      width: 400px;
+      height: 50px;
+    }
+
+    .result-box {
+      margin-top: 20px;
+      border: 1px solid black;
+      padding: 10px;
+      width: 200px;
+      display: inline-block;
+      font-size: 18px;
+      BORDER: 3PX SOLID #4c6aaf;
+      COLOR: #4C6AAF
+    }
+
+    .back-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-button button {
+      background-color: #4c6aaf;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+  .result-box p {
+    font-size: 30px; /* Increase the font size */
+    font-weight: bold;
+    color:#D60202;
+
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Nut Specs</h1>
+    <select id="diameter">
+      <option value="">Select Diameter</option>
+      <option value="M4">M4</option>
+      <option value="M5">M5</option>
+      <option value="M6">M6</option>
+      <option value="M8">M8</option>
+      <option value="M10">M10</option>
+      <option value="M12">M12</option>
+      <option value="M14">M14</option>
+      <option value="M16">M16</option>
+      <option value="M18">M18</option>
+      <option value="M20">M20</option>
+      <option value="M22">M22</option>
+      <option value="M24">M24</option>
+      <option value="M27">M27</option>
+      <option value="M30">M30</option>
+      <option value="M33">M33</option>
+      <option value="M36">M36</option>
+      <option value="M39">M39</option>
+      <option value="M42">M42</option>
+      <option value="M45">M45</option>
+      <option value="M48">M48</option>
+    </select>
+
+    <div class="result-container">
+      <div class="result-box">
+        <h2>Head Across Flats<BR>Spanner Size<br>(mm)</h2>
+        <p id="flats"></p>
+      </div>
+      <div class="result-box">
+        <h2>Head Corner - Corner<BR>(mm)<BR><BR></h2>
+        <p id="corner"></p>
+      </div>
+      <div class="result-box">
+        <h2>Thread Pitch<BR>(mm)<BR><BR><BR></h2>
+        <p id="pitch"></p>
+      </div>
+      <div class="result-box">
+        <h2>Full Nut Thickness<br>(mm)<BR><BR></h2>
+        <p id="fullnut"></p>
+      </div>
+      <div class="result-box">
+        <h2>Type P Nyloc Thickness<br>(mm)<BR><BR></h2>
+        <p id="nylocp"></p>
+      </div>
+      <div class="result-box">
+        <h2>Type T Nyloc Thickness<br>(mm)<BR><BR></h2>
+        <p id="nyloct"></p>
+      </div>
+      <div class="result-box">
+        <h2>Lock Nut Thickness<br>(mm)<BR><BR></h2>
+        <p id="locknut"></p>
+      </div>
+    <br><br><br><br>
+
+    <img src="./images/nuts.png" height="200">
+
+
+    
+    <div class="back-button"><BR>
+      <button onclick="window.location.href='home.html'">Back to Home</button>
+    </div>
+    <BR>
+    <p>See related products on our website <a href="https://www.orbitalfasteners.co.uk/categories/nuts" target="_blank">Click Here</a>.</p>
+  </div>
+  
+  <script>
+    document.getElementById('diameter').addEventListener('change', function () {
+      var diameter = this.value;
+      var flats = '-';
+      var corner = '-';
+      var pitch = '-';
+      var fullnut = '-';
+      var nylocp = '-';
+      var nyloct = '-';
+      var locknut = '-';
+
+      switch (diameter) {
+        case 'M4':
+          flats = '7';
+          corner = '7.6';
+          pitch = '0.7';
+          fullnut = '3.2';
+          nylocp = '5';
+          nyloct = '-';
+          locknut = '2.1';
+          break;
+case 'M5':
+  flats = '8';
+  corner = '8.79';
+  pitch = '0.8';
+  fullnut = '4';
+  nylocp = '6.3';
+  nyloct = '5';
+  locknut = '2.6';
+  break;
+
+case 'M6':
+  flats = '10';
+  corner = '11.05';
+  pitch = '1';
+  fullnut = '5';
+  nylocp = '7.8';
+  nyloct = '6';
+  locknut = '3';
+  break;
+
+case 'M8':
+  flats = '13';
+  corner = '14.38';
+  pitch = '1.25';
+  fullnut = '6.5';
+  nylocp = '9.3';
+  nyloct = '7.8';
+  locknut = '5';
+  break;
+
+case 'M10':
+  flats = '17';
+  corner = '18.9';
+  pitch = '1.5';
+  fullnut = '8';
+  nylocp = '11.2';
+  nyloct = '9.8';
+  locknut = '6';
+  break;
+
+case 'M12':
+  flats = '19';
+  corner = '21.1';
+  pitch = '1.75';
+  fullnut = '10';
+  nylocp = '13.8';
+  nyloct = '11.7';
+  locknut = '7';
+  break;
+
+case 'M14':
+  flats = '22';
+  corner = '24.5';
+  pitch = '2';
+  fullnut = '11';
+  nylocp = '15.7';
+  nyloct = '13.8';
+  locknut = '-';
+  break;
+
+case 'M16':
+  flats = '24';
+  corner = '26.75';
+  pitch = '2';
+  fullnut = '13';
+  nylocp = '17.5';
+  nyloct = '15.7';
+  locknut = '7.7';
+  break;
+
+case 'M18':
+  flats = '27';
+  corner = '30.14';
+  pitch = '2.5';
+  fullnut = '15';
+  nylocp = '-';
+  nyloct = '-';
+  locknut = '-';
+  break;
+
+case 'M20':
+  flats = '30';
+  corner = '33.53';
+  pitch = '2.5';
+  fullnut = '16';
+  nylocp = '21.2';
+  nyloct = '19.2';
+  locknut = '9';
+  break;
+
+case 'M22':
+  flats = '32';
+  corner = '35.03';
+  pitch = '2.5';
+  fullnut = '18';
+  nylocp = '-';
+  nyloct = '-';
+  locknut = '-';
+  break;
+
+case 'M24':
+  flats = '36';
+  corner = '39.98';
+  pitch = '3';
+  fullnut = '19';
+  nylocp = '27';
+  nyloct = '23';
+  locknut = '10';
+  break;
+
+case 'M27':
+  flats = '41';
+  corner = '45.2';
+  pitch = '3';
+  fullnut = '22';
+  nylocp = '-';
+  nyloct = '-';
+  locknut = '-';
+  break;
+
+case 'M30':
+  flats = '46';
+  corner = '50.85';
+  pitch = '3.5';
+  fullnut = '24';
+  nylocp = '-';
+  nyloct = '-';
+  locknut = '-';
+  break;
+
+case 'M33':
+  flats = '50';
+  corner = '55.37';
+  pitch = '3.5';
+  fullnut = '26';
+  nylocp = '-';
+  nyloct = '-';
+  locknut = '-';
+  break;
+
+case 'M36':
+  flats = '55';
+  corner = '60.79';
+  pitch = '4';
+  fullnut = '29';
+  nylocp = '-';
+  nyloct = '-';
+  locknut = '-';
+  break;
+
+case 'M39':
+  flats = '60';
+  corner = '66.44';
+  pitch = '4';
+  fullnut = '31';
+  nylocp = '-';
+  nyloct = '-';
+  locknut = '-';
+  break;
+
+case 'M42':
+  flats = '65';
+  corner = '71.3';
+  pitch = '4.5';
+  fullnut = '34';
+  nylocp = '-';
+  nyloct = '-';
+  locknut = '-';
+  break;
+
+case 'M45':
+  flats = '70';
+  corner = '82.6';
+  pitch = '4.5';
+  fullnut = '36';
+  nylocp = '-';
+  nyloct = '-';
+  locknut = '-';
+  break;
+
+case 'M48':
+  flats = '75';
+  corner = '96.95';
+  pitch = '5';
+  fullnut = '38';
+  nylocp = '-';
+  nyloct = '-';
+  locknut = '-';
+  break;
+      }
+
+      document.getElementById('flats').innerHTML = flats;
+      document.getElementById('corner').innerHTML = corner;
+      document.getElementById('pitch').innerHTML = pitch;
+      document.getElementById('fullnut').innerHTML = fullnut;
+      document.getElementById('nylocp').innerHTML = nylocp;
+      document.getElementById('nyloct').innerHTML = nyloct;
+      document.getElementById('locknut').innerHTML = locknut;
+    });
+  </script>
+
+</body>
+</html>

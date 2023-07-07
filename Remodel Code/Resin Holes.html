@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resin Studs and Holes</title>
+  <style>
+    /* CSS styles for the page layout */
+    body {
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      background: url("https://lh3.googleusercontent.com/Xpjy3FUFlW5lENM4CLjVe1yYf7v0w8z9SHyjN4HU8ZXfrwboZP_QtM6Xs_kc7359EdMBzgoOQXSKwZlZ2Qn_LV8eVLaQMNvudnpB_bhLa3u1KlW2MX-0ApAKFchYIHZQ3eLWPJ1O=w2400") fixed;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    #header {
+      background-color: #333333;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 50vh;
+      margin: 20px auto;
+      max-width: 400px;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #d60202
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #4c6aaf
+    }
+
+    select {
+      font-size: 18px;
+      padding: 5px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    table {
+      margin-top: 20px;
+      border-collapse: collapse;
+      width: 100%;
+      color: #4c6aaf;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f4f4f4;
+    }
+
+    .back-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-button button {
+      background-color: #4c6aaf;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }	
+    .purple-link {
+      color: purple;
+    }
+
+    #studLength{
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    #holeDiameter{
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    #holes380{
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    #holes300{
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div id="content">
+    <h1>Resin Stud and Hole Sizes</h1>
+
+    <h2>Select Stud Diameter:</h2>
+
+    <select id="fastenerSize" onchange="calculateResults()">
+      <option value="">Select Size</option>
+      <option value="8">M8</option>
+      <option value="10">M10</option>
+      <option value="12">M12</option>
+      <option value="16">M16</option>
+      <option value="20">M20</option>
+    </select>
+
+    <table id="resultTable" style="display: none;">
+      <tr>
+        <th>Stud Length (mm)</th>
+        <th>Hole Diameter / Drill Size (mm)</th>
+        <th>Holes from 400ml Cartridge</th>
+        <th>Holes from 300ml Cartridge</th>
+      </tr>
+      <tr>
+        <td id="studLength"></td>
+        <td id="holeDiameter"></td>
+        <td id="holes380"></td>
+        <td id="holes300"></td>
+      </tr>
+    </table>
+
+
+  <script>
+    function calculateResults() {
+      var sizeSelect = document.getElementById("fastenerSize");
+      var sizeValue = sizeSelect.value;
+
+      if (sizeValue !== "") {
+        var studLength, holeDiameter, holes380, holes300;
+
+        switch (sizeValue) {
+          case "8":
+            studLength = "110";
+            holeDiameter = "10";
+            holes380 = "84";
+            holes300 = "66";
+            break;
+          case "10":
+            studLength = "130";
+            holeDiameter = "12";
+            holes380 = "61";
+            holes300 = "48";
+            break;
+          case "12":
+            studLength = "160";
+            holeDiameter = "14";
+            holes380 = "42";
+            holes300 = "33";
+            break;
+          case "16":
+            studLength = "190";
+            holeDiameter = "18";
+            holes380 = "28";
+            holes300 = "22";
+            break;
+          case "20":
+            studLength = "260";
+            holeDiameter = "24";
+            holes380 = "10";
+            holes300 = "6";
+            break;
+
+        }
+
+        document.getElementById("studLength").textContent = studLength;
+        document.getElementById("holeDiameter").textContent = holeDiameter;
+        document.getElementById("holes380").textContent = holes380;
+        document.getElementById("holes300").textContent = holes300;
+
+        document.getElementById("resultTable").style.display = "table";
+      } else {
+        document.getElementById("resultTable").style.display = "none";
+      }
+    }
+
+  </script>
+  <div class="back-button">
+    <button onclick="window.location.href='home.html'">Back to Home</button>
+  </div>
+
+<p>See related products on our website <a href="https://www.orbitalfasteners.co.uk/categories/resin-anchoring-accessories" target="_blank">Click Here</a>.</p>
+
+</body>
+</html>

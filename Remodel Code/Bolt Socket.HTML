@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Metric Bolt and Socket Size Calculator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url("https://lh3.googleusercontent.com/Xpjy3FUFlW5lENM4CLjVe1yYf7v0w8z9SHyjN4HU8ZXfrwboZP_QtM6Xs_kc7359EdMBzgoOQXSKwZlZ2Qn_LV8eVLaQMNvudnpB_bhLa3u1KlW2MX-0ApAKFchYIHZQ3eLWPJ1O=w2400") center/cover;
+      flex-direction: column;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      COLOR: #D60202
+    }
+
+    select {
+      font-size: 24px;
+      padding: 10px;
+      border: 3px solid #4c6aaf;
+      background-color: white;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .answer-box {
+      background-color: #4c6aaf;
+      border: 2px solid #333;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      COLOR: WHITE
+    }
+
+    .answer-box p {
+      margin: 0;
+      font-size: 26px;
+      FONT-WEIGHT: 550;
+    }
+
+    .logo {
+      width: 200px;
+      margin-bottom: 20px;
+    }
+    .back-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-button button {
+      background-color: #4c6aaf;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #selecttext{
+      color:#4c6aaf;
+      font-weight: 550;
+      font-size: 20px
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+
+  </header>
+
+  <h1>Metric Bolt and Socket Size Calculator</h1>
+
+  <label for="boltSize" id="selecttext">Select Metric Bolt Size:</label>
+  <select id="boltSize">
+    <option value="M6">M6</option>
+    <option value="M8">M8</option>
+    <option value="M10">M10</option>
+    <option value="M12">M12</option>
+    <option value="M14">M14</option>
+    <option value="M16">M16</option>
+    <option value="M18">M18</option>
+    <option value="M20">M20</option>
+    <option value="M22">M22</option>
+    <option value="M24">M24</option>
+    <option value="M27">M27</option>
+    <option value="M30">M30</option>
+    <option value="M33">M33</option>
+    <option value="M36">M36</option>
+    <!-- Add more options for other bolt sizes if needed -->
+  </select>
+
+  <div class="answer-box">
+    <h2>Socket Size:</h2>
+    <p id="socketSize"></p>
+    <img class="result-image" src="https://lh3.googleusercontent.com/D1O1vyeNH4fTXnQZ8iKF7LFd_flxLPP3IGtmNOUe2bR05aF6cFhMt5inj4dE4oE2JRBs8auEKLM94ltynwkVFQd2LyJkzbt4IjBNaIMObgEzBcYnygswibL8m3cPArOrZGOL61sr=w2400" alt="Result Image"
+    width="110"
+    height="110">
+  </div>
+
+  <script>
+    // Get references to the select element and the paragraph
+    var boltSizeSelect = document.getElementById('boltSize');
+    var socketSizeParagraph = document.getElementById('socketSize');
+
+    // Define an object that maps bolt sizes to socket sizes
+    var socketSizes = {
+      "M6": "10mm",
+      "M8": "13mm",
+      "M10": "17mm",
+      "M12": "19mm",
+      "M14": "22mm",
+      "M16": "24mm",
+      "M18": "27mm",
+      "M20": "30mm",
+      "M22": "32mm",
+      "M24": "36mm",
+      "M27": "41mm",
+      "M30": "46mm",
+      "M33": "50mm",
+      "M36": "55mm"
+      // Add more mappings for other bolt sizes if needed
+    };
+
+    // Function to update the socket size when a new bolt size is selected
+    function updateSocketSize() {
+      var selectedBoltSize = boltSizeSelect.value;
+      var selectedSocketSize = socketSizes[selectedBoltSize];
+      socketSizeParagraph.textContent = selectedSocketSize;
+    }
+
+    // Call the updateSocketSize function when the bolt size selection changes
+    boltSizeSelect.addEventListener('change', updateSocketSize);
+
+    // Initial update of the socket size based on the default selected bolt size
+    updateSocketSize();
+
+
+  </script>
+  <br><div class="back-button">
+    <button onclick="window.location.href='home.html'">Back to Home</button>
+  </div>
+
+<p>See related products on our website <a href="https://www.orbitalfasteners.co.uk/categories/sockets-socket-sets-accessories" target="_blank">Click Here</a>.</p>
+
+</body>
+</html>

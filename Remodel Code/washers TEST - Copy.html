@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background: url("https://lh3.googleusercontent.com/Xpjy3FUFlW5lENM4CLjVe1yYf7v0w8z9SHyjN4HU8ZXfrwboZP_QtM6Xs_kc7359EdMBzgoOQXSKwZlZ2Qn_LV8eVLaQMNvudnpB_bhLa3u1KlW2MX-0ApAKFchYIHZQ3eLWPJ1O=w2400") center/cover fixed;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .result-box {
+      width: 120px;
+      margin: 10px;
+      padding: 10px;
+      border: 1px solid black;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <form>
+      <label for="size">Size:</label>
+      <select id="size">
+        <option value="">Select A Size</option>
+        <option value="M2">M2</option>
+        <option value="M2.5">M2.5</option>
+        <option value="M3">M3</option>
+        <option value="M4">M4</option>
+        <option value="M5">M5</option>
+        <option value="M6">M6</option>
+        <option value="M8">M8</option>
+        <option value="M10">M10</option>
+        <option value="M12">M12</option>
+        <option value="M14">M14</option>
+        <option value="M16">M16</option>
+        <option value="M18">M18</option>
+        <option value="M20">M20</option>
+        <option value="M22">M22</option>
+        <option value="M24">M24</option>
+        <option value="M27">M27</option>
+        <option value="M30">M30</option>
+        <option value="M33">M33</option>
+        <option value="M36">M36</option>
+        <option value="M39">M39</option>
+        <option value="M42">M42</option>
+        <option value="M48">M48</option>
+      </select>
+    </form>
+  </div>
+  <div id="results" class="container"></div>
+
+  <script>
+    // Add event listener to the dropdown selection
+    document.getElementById("size").addEventListener("change", generateResults);
+
+    // Function to generate result boxes
+    function generateResults() {
+      // Clear any existing result boxes
+      var resultContainer = document.getElementById("results");
+      resultContainer.innerHTML = "";
+
+      // Get the selected size value
+      var selectedSize = document.getElementById("size").value;
+
+      // Find the matching rows in the table
+      // Find the matching rows in the table
+      var table = document.getElementById("dataTable");
+      var rows = table.getElementsByTagName("tr");
+      var matchingRows = [];
+      for (var i = 0; i < rows.length; i++) {
+        var cells = rows[i].getElementsByTagName("td");
+        if (cells.length > 0 && cells[0].innerText === selectedSize) {
+          var matchingCells = [cells[1], cells[2], cells[3], cells[4], cells[5]];
+          matchingRows.push(matchingCells);
+        }
+      }
+
+
+      // Create result boxes
+      var forms = ["A", "B", "C", "E", "G"];
+      for (var j = 0; j < forms.length; j++) {
+        var resultBox = document.createElement("div");
+        resultBox.className = "result-box";
+      
+        var formLabel = document.createElement("p");
+        formLabel.innerText = "Form " + forms[j];
+        resultBox.appendChild(formLabel);
+      
+        if (matchingRows.length > j) {
+          var offset = j * 2 + 1; // Calculate the offset based on the current form index
+          var odValue = matchingRows[j][1 + j].innerText;
+          var thicknessValue = matchingRows[j][2 + j].innerText;
+                
+          var odParagraph = document.createElement("p");
+          odParagraph.innerText = "O/D: " + odValue;
+          resultBox.appendChild(odParagraph);
+      
+          var thicknessParagraph = document.createElement("p");
+          thicknessParagraph.innerText = "Thickness: " + thicknessValue;
+          resultBox.appendChild(thicknessParagraph);
+        }
+      
+        resultContainer.appendChild(resultBox);
+      }
+
+    }
+  </script>
+
+  <div id="results" class="container"></div>
+
+  <table id="dataTable" style="display: none;">
+    <tr>
+      <th>Size</th>
+      <th>Form A</th>
+      <th>Form B</th>
+      <th>Form C</th>
+      <th>Form E</th>
+      <th>Form G</th>
+    </tr>
+    <tr>
+      <td>M2</td>
+      <td>5</td>
+      <td>0.3</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>3</td>
+      <td>3</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+
+    <tr>
+      <td>M2.5</td>
+      <td>6.5</td>
+      <td>0.5</td>
+      <td>O/D 5</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+
+    <tr>
+      <td>M3</td>
+      <td>7</td>
+      <td>0.5</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+
+    <tr>
+      <td>M4</td>
+      <td>9</td>
+      <td>0.8</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>10</td>
+      <td>0.8</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+      <td>N/A</td>
+    </tr>
+    <!-- Add the remaining table rows here -->
+  </table>
+</body>
+</html>

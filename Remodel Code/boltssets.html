@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bolt Specifications</title>
+  <style>
+    body {
+      background: url("https://lh3.googleusercontent.com/Xpjy3FUFlW5lENM4CLjVe1yYf7v0w8z9SHyjN4HU8ZXfrwboZP_QtM6Xs_kc7359EdMBzgoOQXSKwZlZ2Qn_LV8eVLaQMNvudnpB_bhLa3u1KlW2MX-0ApAKFchYIHZQ3eLWPJ1O=w2400") center/cover FIXED; 
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 980px;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    select#diameterSelect {
+      width: 200px; /* Adjust the width as desired */
+      padding: 10px;
+      font-size: 20px;
+    }
+
+    h1 {
+      margin-top: 0;
+      color: #d60202
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #4c6aaf
+      text-weight: 700;
+    }
+
+    select {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    p.result {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size:20px;
+
+    }
+
+    .image-container {
+      text-align: center;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .image-container img {
+      max-width: 1000px;
+    }
+
+    .back-button button {
+      background-color: #4c6aaf;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    
+    h3{
+        color: #4c6aaf
+    }
+
+    p{
+      color: #4c6aaf
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Bolt Specifications</h1>
+
+    <label for="diameterSelect"><h3>Select Diameter:</h3></label>
+    <select id="diameterSelect">
+      <option value="">-- Select --</option>
+      <option value="4">M4</option>
+      <option value="5">M5</option>
+      <option value="6">M6</option>
+      <option value="8">M8</option>
+      <option value="10">M10</option>
+      <option value="12">M12</option>
+      <option value="14">M14</option>
+      <option value="16">M16</option>
+      <option value="18">M18</option>
+      <option value="20">M20</option>
+      <option value="24">M24</option>
+      <option value="30">M30</option>
+      <option value="33">M33</option>
+      <option value="36">M36</option>
+      <option value="39">M39</option>
+      <option value="42">M42</option>
+    </select>
+  <div class="result-container">
+    <p class="result headAcrossFlat"></p>
+    <p class="result headCornerToCorner"></p>
+    <p class="result threadPitch"></p>
+    <p class="result headThickness"></p>
+    <p class="result torqueNm"></p>
+    <p class="result tappingDrillBit"></p>
+  </div>
+
+  <BR>
+
+  <div class="image-container">
+    <img src="https://lh3.googleusercontent.com/pw/AJFCJaWrR2kyJ-YuGucSdpFLHRV6fiihBmtyT28B0916v4FxI62Ja7J8ro_ee5DtYwuZNyYJkMujB3ZAX10M5w8zAclpxWwU5fiHVm64u1bCNtMKiRFvAtA=w2400">
+  </div>
+
+  <script>
+    const boltData = {
+      "4": {
+        headAcrossFlat: "7mm",
+        headCornerToCorner: "7.6mm",
+        threadPitch: "0.7mm",
+        headThickness: "2.8mm",
+        torqueNm: "3Nm",
+        tappingDrillBit: "3.3mm"
+      },
+      "5": {
+        headAcrossFlat: "8mm",
+        headCornerToCorner: "8.79mm",
+        threadPitch: "0.8mm",
+        headThickness: "3.5mm",
+        torqueNm: "6Nm",
+        tappingDrillBit: "4.2mm"
+      },
+
+      "6": {
+        headAcrossFlat: "10mm",
+        headCornerToCorner: "11.05mm",
+        threadPitch: "1mm",
+        headThickness: "4mm",
+        torqueNm: "10Nm",
+        tappingDrillBit: "5mm"
+      },
+
+      "8": {
+        headAcrossFlat: "13mm",
+        headCornerToCorner: "14.38mm",
+        threadPitch: "1.25mm",
+        headThickness: "5.3mm",
+        torqueNm: "26Nm",
+        tappingDrillBit: "6.75mm"
+      },
+
+      "10": {
+        headAcrossFlat: "17mm",
+        headCornerToCorner: "18.9mm",
+        threadPitch: "1.5mm",
+        headThickness: "6.4mm",
+        torqueNm: "51Nm",
+        tappingDrillBit: "8.5mm"
+      },
+
+      "12": {
+        headAcrossFlat: "19mm",
+        headCornerToCorner: "21.1mm",
+        threadPitch: "1.75mm",
+        headThickness: "7.5mm",
+        torqueNm: "89Nm",
+        tappingDrillBit: "10.25mm"
+      },
+
+      "14": {
+        headAcrossFlat: "22mm",
+        headCornerToCorner: "24.5mm",
+        threadPitch: "2mm",
+        headThickness: "8.5mm",
+        torqueNm: "115Nm",
+        tappingDrillBit: "12mm"
+      },
+
+      "16": {
+        headAcrossFlat: "24mm",
+        headCornerToCorner: "26.75mm",
+        threadPitch: "2mm",
+        headThickness: "10mm",
+        torqueNm: "220Nm",
+        tappingDrillBit: "14mm"
+      },
+
+      "18": {
+        headAcrossFlat: "27mm",
+        headCornerToCorner: "30.14mm",
+        threadPitch: "2.5mm",
+        headThickness: "11.72mm",
+        torqueNm: "300Nm",
+        tappingDrillBit: "15.5mm"
+      },
+
+      "20": {
+        headAcrossFlat: "30mm",
+        headCornerToCorner: "33.53mm",
+        threadPitch: "2.5mm",
+        headThickness: "12.5mm",
+        torqueNm: "430Nm",
+        tappingDrillBit: "17.5mm"
+      },
+
+      "24": {
+        headAcrossFlat: "36mm",
+        headCornerToCorner: "39.98mm",
+        threadPitch: "3mm",
+        headThickness: "15mm",
+        torqueNm: "770Nm",
+        tappingDrillBit: "21mm"
+      },
+
+      "30": {
+        headAcrossFlat: "46mm",
+        headCornerToCorner: "50.85mm",
+        threadPitch: "3.5mm",
+        headThickness: "19mm",
+        torqueNm: "1460Nm",
+        tappingDrillBit: "26.5mm"
+      },
+
+      "33": {
+        headAcrossFlat: "50mm",
+        headCornerToCorner: "55.37mm",
+        threadPitch: "3.5mm",
+        headThickness: "21.4mm",
+        torqueNm: "1830Nm",
+        tappingDrillBit: "29.5mm"
+      },
+
+      "36": {
+        headAcrossFlat: "55mm",
+        headCornerToCorner: "60.79mm",
+        threadPitch: "4mm",
+        headThickness: "22.9mm",
+        torqueNm: "2360Nm",
+        tappingDrillBit: "32mm"
+      },
+
+      "39": {
+        headAcrossFlat: "60mm",
+        headCornerToCorner: "66.44mm",
+        threadPitch: "4mm",
+        headThickness: "25.4mm",
+        torqueNm: "3050Nm",
+        tappingDrillBit: "35mm"
+      },
+
+      "42": {
+        headAcrossFlat: "65mm",
+        headCornerToCorner: "71.3mm",
+        threadPitch: "4.5mm",
+        headThickness: "26.4mm",
+        torqueNm: "n/aNm",
+        tappingDrillBit: "37.5mm"
+      },
+
+
+
+      // Add more data for other diameters...
+    };
+
+    const diameterSelect = document.getElementById('diameterSelect');
+    const resultHeadAcrossFlat = document.querySelector('.result.headAcrossFlat');
+    const resultHeadCornerToCorner = document.querySelector('.result.headCornerToCorner');
+    const resultThreadPitch = document.querySelector('.result.threadPitch');
+    const resultHeadThickness = document.querySelector('.result.headThickness');
+    const resultTorqueNm = document.querySelector('.result.torqueNm');
+    const resultTappingDrillBit = document.querySelector('.result.tappingDrillBit');
+
+    diameterSelect.addEventListener('change', function() {
+      const diameter = this.value;
+
+      if (diameter && boltData[diameter]) {
+        const bolt = boltData[diameter];
+
+        resultHeadAcrossFlat.textContent = `A. Head Across Flat / Spanner Size (mm): ${bolt.headAcrossFlat}`;
+        resultHeadCornerToCorner.textContent = `B. Head Corner - Corner (mm): ${bolt.headCornerToCorner}`;
+        resultThreadPitch.textContent = `C. Thread Pitch (mm): ${bolt.threadPitch}`;
+        resultHeadThickness.textContent = `D. Head Thickness (mm): ${bolt.headThickness}`;
+        resultTorqueNm.textContent = `E. Torque Nm: ${bolt.torqueNm}`;
+        resultTappingDrillBit.textContent = `F. Tapping Drill Bit (mm): ${bolt.tappingDrillBit}`;
+      } else {
+        resultHeadAcrossFlat.textContent = '';
+        resultHeadCornerToCorner.textContent = '';
+        resultThreadPitch.textContent = '';
+        resultHeadThickness.textContent = '';
+        resultTorqueNm.textContent = '';
+        resultTappingDrillBit.textContent = '';
+      }
+    });
+  </script>
+
+<BR><BR><BR>
+
+  <div class="back-button">
+    <button onclick="window.location.href='home.html'">Back to Home</button>
+  </div>
+
+<p><br><center>See related products on our website <a href="https://www.orbitalfasteners.co.uk/categories/bolts-bolting-products" target="_blank">Click Here</a>.</p>
+
+</body>
+</html>

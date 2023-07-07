@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Thread Length Calculator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url("https://lh3.googleusercontent.com/Xpjy3FUFlW5lENM4CLjVe1yYf7v0w8z9SHyjN4HU8ZXfrwboZP_QtM6Xs_kc7359EdMBzgoOQXSKwZlZ2Qn_LV8eVLaQMNvudnpB_bhLa3u1KlW2MX-0ApAKFchYIHZQ3eLWPJ1O=w2400") center/cover;
+      flex-direction: column;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    p,{
+      font-size: 26px;
+      margin-bottom: 10px;
+      color:#4c6aaf 
+        }
+
+    select{
+      font-size: 26px;
+      margin-bottom: 10px;
+      color:black 
+      }
+
+      h1{
+        color:#d60202
+      }
+
+      h2{
+        color:#4c6aaf
+      }
+
+    .result-box {
+      background-color: #4c6aaf;
+      border: 2px solid #333;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 20px;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      color: white;
+    }
+
+    .result-box p {
+      margin: 0;
+      font-size: 22px;
+      padding: 3px;
+      font-weight: 550;
+    }
+
+    .logo {
+      width: 200px;
+      margin-bottom: 20px;
+    }
+
+    .label {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .back-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-button button {
+      background-color: #4c6aaf;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #resultBoxshank {
+      margin: 20px;
+      padding: 10px;
+      width: 150px;
+      height: 200px;
+      display: inline-block;
+      font-size: 26px;
+      font-weight: bolder;
+      text-align: center;
+      BORDER: 3PX SOLID #4c6aaf;
+      COLOR: #4C6AAF;
+      background-color: white;
+      background-image: url("./iMAGEs/shanklength.png");
+      background-size:50px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-position-y: 90%;
+
+    }
+
+    #resultBoxthread {
+      margin: 20px;
+      padding: 10px;
+      width: 150px;
+      height: 200px;
+      display: inline-block;
+      font-size: 26px;
+      font-weight: bolder;
+      text-align: center;
+      BORDER: 3PX SOLID #4c6aaf;
+      COLOR: #4C6AAF;
+      background-color: white;
+      background-image: url("./iMAGEs/threadlength.png");
+      background-size:50px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-position-y: 90%;
+       }
+
+    .container{
+      display:flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+
+    
+
+
+  </style>
+</head>
+<body>
+  <h1>Thread Length Calculator</h1>
+
+  <h2 class="label">Bolt Diameter</h2>
+  <select id="boltSize" onchange="populateThreadLengths()">
+    <option value="6">M6</option>
+    <option value="8">M8</option>
+    <option value="10">M10</option>
+    <option value="12">M12</option>
+    <option value="16">M16</option>
+    <option value="20">M20</option>
+    <option value="24">M24</option>
+    <option value="30">M30</option>
+  </select>
+
+  <h2 class="label">Bolt Length</h2>
+  <select id="threadLength" onchange="calculateThreadLength()">
+    <!-- Options will be dynamically populated based on the selected bolt diameter -->
+  </select>
+  <div class="container">    
+    <div id="resultBoxthread"> 
+    </div>
+
+    <div id="resultBoxshank">  
+    </div>
+
+  </div>
+
+  
+  
+  
+
+  <script>
+    // Function to populate the thread length dropdown based on the selected bolt size
+    function populateThreadLengths() {
+      const boltSizeSelect = document.getElementById("boltSize");
+      const threadLengthSelect = document.getElementById("threadLength");
+
+      const boltSize = parseInt(boltSizeSelect.value);
+      let threadLengths;
+
+      switch (boltSize) {
+        case 6:
+          threadLengths = [25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 90, 100, 110, 120];
+          break;
+        case 8:
+          threadLengths = [30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 90, 100, 110, 120, 130, 140, 150];
+          break;
+        case 10:
+          threadLengths = [35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 90, 100, 110, 120, 130, 140, 150, 160, 180, 200];
+          break;
+        case 12:
+          threadLengths = [40, 45, 50, 55, 60, 65, 70, 75, 80, 90, 100, 110, 120, 130, 140, 150, 160, 180, 200, 220, 240, 260, 280, 300];
+          break;
+        case 16:
+          threadLengths = [45, 50, 55, 60, 65, 70, 75, 80, 90, 100, 110, 120, 130, 140, 150, 160, 180, 200, 220, 240, 260, 280, 300];
+          break;
+        case 20:
+          threadLengths = [60, 65, 70, 75, 80, 90, 100, 110, 120, 130, 140, 150, 160, 180, 200, 220, 240, 260, 280, 300];
+          break;
+        case 24:
+          threadLengths = [70, 75, 80, 90, 100, 110, 120, 130, 140, 150, 160, 180, 200, 220, 240, 260, 280, 300];
+          break;
+        case 30:
+          threadLengths = [80, 90, 100, 110, 120, 130, 140, 150, 160, 180, 200, 220, 240, 260, 280];
+          break;
+        default:
+          threadLengths = [];
+      }
+
+      // Clear previous options
+      threadLengthSelect.innerHTML = "";
+
+      // Create new options
+      for (let length of threadLengths) {
+        let option = document.createElement("option");
+        option.value = length;
+        option.text = length + "mm";
+        threadLengthSelect.add(option);
+      }
+
+      // Refresh the result
+      calculateThreadLength();
+    }
+
+    // Function to calculate the thread length and display the result
+    function calculateThreadLength() {
+      const boltSizeSelect = document.getElementById("boltSize");
+      const threadLengthSelect = document.getElementById("threadLength");
+      const threadResultElement = document.getElementById("resultBoxthread");
+      const shankResultElement = document.getElementById("resultBoxshank");
+
+      const boltSize = parseInt(boltSizeSelect.value);
+      const threadLength = parseInt(threadLengthSelect.value);
+      let calculatedThreadLength;
+      let calculatedShankLength;
+
+      if (threadLength <= 125) {
+        calculatedThreadLength = 2 * boltSize + 6;
+      } else if (threadLength > 125 && threadLength <= 200) {
+        calculatedThreadLength = 2 * boltSize + 12;
+      } else {
+        calculatedThreadLength = 2 * boltSize + 25;
+      }
+
+      calculatedShankLength = threadLength - calculatedThreadLength;
+
+      threadResultElement.textContent = `Thread Length: ${calculatedThreadLength}mm`;
+      shankResultElement.textContent = `Shank Length: ${calculatedShankLength}mm`;
+    }
+
+    // Initial population of thread lengths based on the default bolt size
+    populateThreadLengths();
+  </script>
+  <br><div class="back-button">
+    <button onclick="window.location.href='home.html'">Back to Home</button>
+  </div>
+</body>
+</html>
